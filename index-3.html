@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Por que o sal some na água? — Dissolução do NaCl</title>
+<meta name="description" content="Página interativa sobre a dissolução do cloreto de sódio (NaCl) em água: conceitos, animações, simulação e quiz para alunos e alunas.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧂</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand">
+      <span class="brand-ion brand-na" aria-hidden="true">Na⁺</span><span class="brand-ion brand-cl" aria-hidden="true">Cl⁻</span>
+      <span class="brand-name">Dissolução do Sal</span>
+    </div>
+    <nav class="site-nav" aria-label="Navegação principal">
+      <a href="#conceito">Conceito</a>
+      <a href="#animacao">Animação</a>
+      <a href="#simulacao">Simulação</a>
+      <a href="#grafico">Gráfico</a>
+      <a href="#quiz">Quiz</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Abertura">
+    <div class="wrap hero-inner">
+      <div class="hero-text">
+        <p class="eyebrow">Química da solução aquosa</p>
+        <h1>Por que o sal <span class="hl">some</span> quando cai na água?</h1>
+        <p class="lede">O cloreto de sódio (NaCl) parece desaparecer em um copo d'água — mas ele não se destrói. Seus íons Na⁺ e Cl⁻ se separam e ficam cercados por moléculas de água. Nesta página, você vai ver, mexer e testar essa ideia.</p>
+        <div class="hero-actions">
+          <a href="#conceito" class="btn btn-primary">Começar a explorar</a>
+          <a href="#simulacao" class="btn btn-ghost">Ir direto à simulação</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <canvas id="heroCanvas" width="520" height="420" role="img" aria-label="Animação contínua mostrando um cristal de sal se dissolvendo em água, com íons de sódio e cloreto sendo cercados por moléculas de água"></canvas>
+        <p class="visual-caption">A cada poucos segundos, o cristal se refaz e se dissolve de novo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCEITO -->
+  <section id="conceito" class="section" aria-labelledby="conceito-h">
+    <div class="wrap">
+      <p class="eyebrow">Passo 1</p>
+      <h2 id="conceito-h">O que realmente acontece</h2>
+      <div class="concept-grid">
+        <article class="concept-card">
+          <div class="concept-icon" aria-hidden="true">🧊</div>
+          <h3>1. O cristal iônico</h3>
+          <p>No sal sólido, os íons Na⁺ e Cl⁻ formam uma rede cristalina, presos por fortes atrações elétricas chamadas <strong>ligações iônicas</strong>. É essa rede organizada que faz o sal parecer um bloco rígido.</p>
+        </article>
+        <article class="concept-card">
+          <div class="concept-icon" aria-hidden="true">💧</div>
+          <h3>2. A água é polar</h3>
+          <p>Cada molécula de água (H₂O) tem um lado levemente negativo (o oxigênio) e um lado levemente positivo (os hidrogênios). Essa <strong>polaridade</strong> permite que a água "puxe" os íons do cristal.</p>
+        </article>
+        <article class="concept-card">
+          <div class="concept-icon" aria-hidden="true">🌀</div>
+          <h3>3. Hidratação dos íons</h3>
+          <p>O oxigênio da água se aproxima do Na⁺ e o hidrogênio se aproxima do Cl⁻. Várias moléculas de água envolvem cada íon, formando uma <strong>camada de hidratação</strong> que o mantém separado do cristal.</p>
+        </article>
+        <article class="concept-card">
+          <div class="concept-icon" aria-hidden="true">⚖️</div>
+          <h3>4. Equilíbrio de energias</h3>
+          <p>A dissolução acontece porque a energia liberada na hidratação dos íons compensa a energia necessária para quebrar a rede cristalina. Por isso o NaCl se dissolve bem em água, mas não em óleo.</p>
+        </article>
+      </div>
+      <div class="callout" role="note">
+        <strong>Equação de dissociação:</strong>
+        <code class="eq">NaCl (s) &rarr; Na&#8314;(aq) + Cl&#8315;(aq)</code>
+        <span class="callout-note">O sufixo <em>(aq)</em> indica que o íon está disperso e hidratado em água.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANIMAÇÃO DIDÁTICA -->
+  <section id="animacao" class="section section-alt" aria-labelledby="animacao-h">
+    <div class="wrap">
+      <p class="eyebrow">Passo 2</p>
+      <h2 id="animacao-h">Animação passo a passo</h2>
+      <p class="section-intro">Avance pelas quatro etapas do processo e veja o que acontece em nível molecular em cada uma.</p>
+
+      <div class="stage-panel">
+        <canvas id="stageCanvas" width="700" height="380" role="img" aria-label="Ilustração da etapa atual da dissolução do sal"></canvas>
+        <div class="stage-info">
+          <div class="stage-badge" id="stageBadge">Etapa 1 de 4</div>
+          <h3 id="stageTitle">Cristal intacto</h3>
+          <p id="stageDesc">Os íons Na⁺ (violeta) e Cl⁻ (verde) estão organizados em uma rede cristalina rígida, sem água por perto.</p>
+          <div class="stage-controls">
+            <button id="stagePrev" class="btn btn-ghost" type="button">◀ Anterior</button>
+            <button id="stagePlay" class="btn btn-primary" type="button">▶ Reproduzir sequência</button>
+            <button id="stageNext" class="btn btn-ghost" type="button">Próxima ▶</button>
+          </div>
+          <div class="stage-dots" id="stageDots" role="tablist" aria-label="Etapas da animação"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULAÇÃO -->
+  <section id="simulacao" class="section" aria-labelledby="simulacao-h">
+    <div class="wrap">
+      <p class="eyebrow">Passo 3</p>
+      <h2 id="simulacao-h">Simulação interativa</h2>
+      <p class="section-intro">Ajuste a temperatura e a agitação e observe como isso muda a velocidade de dissolução do sal em tempo real.</p>
+
+      <div class="sim-layout">
+        <div class="sim-canvas-wrap">
+          <canvas id="simCanvas" width="640" height="420" role="img" aria-label="Simulação de partículas mostrando íons de sal se dissolvendo em água conforme os controles ajustados"></canvas>
+          <div class="sim-readout" aria-live="polite">
+            <div class="readout-item">
+              <span class="readout-label">Dissolvido</span>
+              <span class="readout-value" id="readoutDissolved">0%</span>
+            </div>
+            <div class="readout-item">
+              <span class="readout-label">Tempo</span>
+              <span class="readout-value" id="readoutTime">0,0 s</span>
+            </div>
+            <div class="readout-item">
+              <span class="readout-label">Estado</span>
+              <span class="readout-value" id="readoutState">Pronto</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sim-controls">
+          <div class="control-group">
+            <label for="tempRange">Temperatura da água <span class="unit" id="tempValue">25 °C</span></label>
+            <input type="range" id="tempRange" min="0" max="100" value="25" step="1" aria-describedby="tempHelp">
+            <p class="control-help" id="tempHelp">Água mais quente = moléculas mais agitadas = dissolução mais rápida.</p>
+          </div>
+
+          <div class="control-group">
+            <label for="saltRange">Quantidade de sal <span class="unit" id="saltValue">Média</span></label>
+            <input type="range" id="saltRange" min="1" max="3" value="2" step="1" aria-describedby="saltHelp">
+            <p class="control-help" id="saltHelp">Mais sal significa mais íons para hidratar — a água pode saturar.</p>
+          </div>
+
+          <div class="control-group toggle-group">
+            <label class="toggle-label" for="stirToggle">
+              <input type="checkbox" id="stirToggle">
+              <span>Agitar a solução</span>
+            </label>
+            <p class="control-help">Agitar aproxima mais água do cristal e acelera a dissolução.</p>
+          </div>
+
+          <div class="sim-buttons">
+            <button id="simStart" class="btn btn-primary" type="button">Iniciar simulação</button>
+            <button id="simReset" class="btn btn-ghost" type="button">Reiniciar</button>
+          </div>
+
+          <div class="legend" aria-hidden="true">
+            <span class="legend-item"><i class="dot dot-na"></i> Íon Na⁺</span>
+            <span class="legend-item"><i class="dot dot-cl"></i> Íon Cl⁻</span>
+            <span class="legend-item"><i class="dot dot-water"></i> Água</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRÁFICO -->
+  <section id="grafico" class="section section-alt" aria-labelledby="grafico-h">
+    <div class="wrap">
+      <p class="eyebrow">Passo 4</p>
+      <h2 id="grafico-h">Concentração ao longo do tempo</h2>
+      <p class="section-intro">Este gráfico é alimentado pela simulação acima: rode a simulação para ver a curva de dissolução sendo desenhada.</p>
+      <div class="chart-panel">
+        <canvas id="chartCanvas" width="760" height="340" role="img" aria-label="Gráfico de linha mostrando a porcentagem de sal dissolvido ao longo do tempo"></canvas>
+        <p class="chart-note" id="chartNote">Nenhum dado ainda — inicie a simulação na seção anterior para gerar a curva.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz" class="section" aria-labelledby="quiz-h">
+    <div class="wrap wrap-narrow">
+      <p class="eyebrow">Passo 5</p>
+      <h2 id="quiz-h">Teste o que você aprendeu</h2>
+      <p class="section-intro">Cinco perguntas com feedback imediato. Ao final, você recebe sua pontuação.</p>
+
+      <div class="quiz-panel" id="quizPanel">
+        <div class="quiz-progress">
+          <div class="quiz-progress-bar" id="quizProgressBar"></div>
+        </div>
+        <p class="quiz-meta" id="quizMeta">Pergunta 1 de 5</p>
+
+        <div id="quizQuestionArea">
+          <h3 id="quizQuestion" class="quiz-question"></h3>
+          <div id="quizOptions" class="quiz-options" role="radiogroup" aria-labelledby="quizQuestion"></div>
+          <div id="quizFeedback" class="quiz-feedback" aria-live="polite"></div>
+          <div class="quiz-actions">
+            <button id="quizCheck" class="btn btn-primary" type="button">Confirmar resposta</button>
+            <button id="quizNext" class="btn btn-primary" type="button" hidden>Próxima pergunta ▶</button>
+          </div>
+        </div>
+
+        <div id="quizResult" class="quiz-result" hidden>
+          <div class="result-score" id="resultScore">0/5</div>
+          <p class="result-message" id="resultMessage"></p>
+          <button id="quizRestart" class="btn btn-primary" type="button">Refazer o quiz</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>Feito para apoiar o ensino de Química — livre para usar em sala de aula.</p>
+    <p class="footer-small">NaCl (s) &rarr; Na&#8314;(aq) + Cl&#8315;(aq)</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
